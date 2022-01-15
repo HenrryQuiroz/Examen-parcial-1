@@ -1,0 +1,13 @@
+#Muevo Marra2014_data.fasta al sandbox
+mv Marra2014_data.fasta ../sandbox
+#Longitud de la data
+wc Marra2014_data.fasta
+#Hago una copia de Marra2014
+cp Marra2014_data.fasta my_file.fasta
+#Cantidades de isogroup00036 
+grep isogroup00036 my_file.fasta | wc -l | tr -s "  " | tr " " "," 
+#Elementos únicos
+uniq my_file.fasta | wc -l
+#Numero de reads
+grep numreads my_file.fasta | tr -s "  " | tr " " "," | cut -d "," -f 1,3 | sort -r -n -k 3
+
